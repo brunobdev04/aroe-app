@@ -1,4 +1,6 @@
 import heroBg from '../../assets/hero.jpg'
+import Button from '../Button/Button'
+
 
 export default function Hero() {
   return (
@@ -34,13 +36,9 @@ export default function Hero() {
           qualificadas e receba em casa com total transparência.
         </p>
 
-        <div className="flex gap-3 flex-wrap mb-10">
-          <button className="cursor-pointer font-sans text-sm font-semibold px-6 py-2.5 rounded-xl text-white border border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white/12 transition-all duration-300">
-            Sou Farmácia
-          </button>
-          <button className="cursor-pointer font-sans text-sm font-semibold px-6 py-2.5 rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-500/30 transition-all duration-300">
-            Solicitar Orçamento
-          </button>
+        <div className="flex gap-5 flex-wrap mb-10">
+          <Button variant="outline">Sou Farmácia</Button>
+          <Button variant="primary">Solicitar Orçamento</Button>
         </div>
 
         <div className="flex gap-6 flex-wrap">
