@@ -10,13 +10,13 @@ export default function Navbar() {
                 </Link>
 
                 <div className="flex items-center gap-10">
-                    <Link to="/medicamentos" className="text-white text-sm font-medium hover:opacity-80 trasition">
+                    <Link to="/medicamentos" className="text-white text-sm font-medium hover:opacity-80 transition">
                         Medicamentos
                     </Link>
-                    <Link to="/como-funciona" className="text-white text-sm font-medium hover:opacity-80 trasition">
+                    <Link to="/como-funciona" className="text-white text-sm font-medium hover:opacity-80 transition">
                         Como funciona
                     </Link>
-                    <Link to="/sobre" className="text-white text-sm font-medium hover:opacity-80 trasition">
+                    <Link to="/sobre" className="text-white text-sm font-medium hover:opacity-80 transition">
                         Sobre
                     </Link>
                 </div>
