@@ -1,5 +1,5 @@
-import heroBg from '../../assets/hero.jpg'
-import Button from '../Button/Button'
+import heroBg from '../../../assets/hero.jpg'
+import Button from '../../../components/ui/Button'
 
 
 export default function Hero() {

@@ -1,9 +1,27 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import Button from "../Button/Button"
+import Button from "../../ui/Button/Button"
 
 export default function Navbar() {
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 120)
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true })
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
+
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md px-8 py-3">
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 px-8 py-3 transition-all duration-700 ${
+                scrolled
+                    ? "bg-black/40 backdrop-blur-md shadow-lg shadow-black/20"
+                    : "bg-transparent"
+            }`}
+        >
             <nav className="max-w-6xl mx-auto flex items-center justify-between">
                 <Link to="/" className="flex items-center">
                     <img src="/logo.png" alt="Logo da Aroê" className="h-10"/>
