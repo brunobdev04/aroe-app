@@ -1,0 +1,72 @@
+import { Link } from "react-router-dom";
+
+const links = {
+    Produtos: [
+        {label: "Vitaminas", to: "/medicamentos/vitaminas"},
+        {label: "Suplementos", to: "/medicamentos/suplementos"},
+        {label: "Hormônios", to: "/medicamentos/hormonios"},
+        {label: "Fitoterápicos", to: "/medicamentos/fitoterapicos"},
+    ],
+    Empresa: [
+        {label: "Sobre nós", to: "/Sobre"},
+        {label: "Como Funciona", to: "/como-funciona"},
+        {label: "Blog", to: "/blog"},
+        {label: "Carreiras", to: "/carreiras"},
+    ],
+    Suporte: [
+        {label: "FAQ", to: "/faq"},
+        {label: "Fale Conosco", to: "/contato"},
+        {label: "Política de Privacidade", to: "/privacidade"},
+        {label: "Termos de Uso", to: "/termos"},
+    ],
+}
+
+export default function Footer() {
+    return (
+        <footer className="bg-[#12113a] text-white">
+
+            <div className="max-w-6xl mx-auto px-8 py-14">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+
+                    <div className="flex flex-col gap-4">
+                        <img src="/logo.png" alt="Logo Aroê" className="h-8 w-fit" />
+                        <p className="text-sm text-white/60 leading-relaxed max-w-xs">
+                            Medicamentos manipulados com precisão farmacêutica e entregues com cuidado diretamente para você.    
+                        </p>
+                    </div>
+
+                    {Object.entries(links).map(([title, items]) => (
+                        <div key={title} className="flex flex-col gap-4">
+                            <span className="text-sm font-semibold text-violet-400">
+                                {title}
+                            </span>
+
+                            <ul className="flex flex-col gap-3">
+                                {items.map((item) => (
+                                    <li key={item.label}>
+                                        <Link
+                                            to={item.to}
+                                            className="text-sm text-white/60 hover:text-white transition-colors duration-200"
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+
+            <div className="border-t border-white/10">
+                <div className="max-w-6xl mx-auto px-8 py-5">
+                    <p className="text-xs text-white/40">
+                        © {new Date().getFullYear()} Aroê Farmácia Magistral. Todos os direitos reservados.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    )
+
+}
