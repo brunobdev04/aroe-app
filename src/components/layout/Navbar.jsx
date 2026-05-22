@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import Button from "../../ui/Button/Button"
+import Button from "../ui/Button"
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)

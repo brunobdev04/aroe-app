@@ -2,7 +2,7 @@ import heroBg from '../../../assets/hero.jpg'
 import Button from '../../../components/ui/Button'
 
 
-export default function Hero() {
+export default function HeroSection() {
   return (
     <section
       className="relative h-screen flex items-center justify-start overflow-hidden antialiased"
@@ -38,21 +38,25 @@ export default function Hero() {
 
         <div className="flex gap-5 flex-wrap mb-10">
           <Button variant="outline">Sou Farmácia</Button>
-          <Button variant="primary">Solicitar Orçamento</Button>
+          <Button variant="primary">Enviar Receita</Button>
         </div>
 
         <div className="flex gap-6 flex-wrap">
+
           <div className="flex items-center gap-1.5 text-xs text-white/85">
             <div className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-emerald-400 bg-emerald-400/25 text-[9px]">✓</div>
             Envio único de receita
+
           </div>
           <div className="flex items-center gap-1.5 text-xs text-white/85">
             <div className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-indigo-400 bg-indigo-400/30 text-[9px]">✓</div>
             Compare preços
+
           </div>
           <div className="flex items-center gap-1.5 text-xs text-white/85">
             <div className="w-3.5 h-3.5 rounded-full flex items-center justify-center text-emerald-400 bg-emerald-400/25 text-[9px]">✓</div>
             Farmácias verificadas
+            
           </div>
         </div>
 
