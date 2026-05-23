@@ -1,27 +1,3 @@
-<<<<<<< Updated upstream
-export default function HowItWorksSection() {
-    return (
-        <section className="min-h-screen flex bg-[#F4F2FB] overflow-hidden">
-
-            {/* conteudo */}
-            <div className="w-1/2 flex items-center px-16 py-24">
-                <div className="flex flex-col gap-10 max-w-md">
-                    <div>
-                        <h2 className="font-dm-serif text-4xl font-bold text-[#2A1F5E] leading-snug">
-                            Controle seu tratamento do,{" "}
-                            <span className="text-[#4DAA5C]">início ao fim.</span>
-                        </h2>
-                        <p className="mt-4 text-lg text-black leading-relaxed">
-                           Envie sua receita, compare preços e finalize com a melhor opção, tudo pelo celular
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-
-            {/* mockup imgs */}
-            <div className="flex justify-center items-center">
-=======
 import { FileText, CircleDollarSign, Truck, Upload, Play } from 'lucide-react'
 import Button from '../../../components/ui/Button'
 
@@ -45,19 +21,25 @@ const steps = [
 
 export default function HowItWorksSection() {
     return (
-        <section className="flex bg-primary-light/20 overflow-hidden min-h-screen">
+        <section className="relative flex overflow-hidden min-h-screen">
+
+            {/* bg */}
+            <div
+                className="absolute inset-0 bg-cover bg-top z-0"
+                style={{ backgroundImage: `url('/bg-howItWorks.png')` }}
+            />
 
             {/* textos*/}
-            <div className="w-1/2 flex items-center px-16 min-h-screen">
+            <div className="relative z-20 w-1/2 flex items-center px-16 min-h-screen">
                 <div className="flex flex-col gap-6 max-w-xl">
 
-                    {/*  */}
+                    {/* acho q vou mudar isso */}
                     <div className="inline-flex items-center gap-2 self-start text-xs font-semibold tracking-widest px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary">
                         <span>🌿</span>
                         PRÁTICO E COMPLETO
                     </div>
 
-                    {/* Heading + subtitle */}
+                    {/* head e subtitle */}
                     <div>
                         <h2 className="font-serif text-5xl font-bold text-primary leading-snug">
                             Controle seu tratamento
@@ -92,28 +74,24 @@ export default function HowItWorksSection() {
                             <Upload size={16} />
                             Enviar receita
                         </Button>
-                        <button className="flex items-center gap-2 border-2 border-primary/30 text-primary font-semibold text-sm px-6 py-3.5 rounded-xl hover:border-primary/60 hover:bg-primary/5 transition-colors">
+
+                        <Button variant='outline'>
                             <Play size={14} className="fill-primary" />
                             Ver como funciona
-                        </button>
+                        </Button>
                     </div>
 
                 </div>
             </div>
 
-            {/* ── Right mockup ── */}
-            <div className="w-1/2 flex justify-center items-center overflow-hidden">
->>>>>>> Stashed changes
+            {/* mockups */}
+            <div className="relative z-20 w-1/2 flex justify-center items-center overflow-hidden">
                 <img
                     src="/mockups.png"
                     alt="App Aroê"
                     className="w-full max-w-lg drop-shadow-2xl"
                 />
             </div>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         </section>
     )
 }

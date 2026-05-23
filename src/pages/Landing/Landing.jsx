@@ -6,13 +6,8 @@ export default function Landing() {
     return (
         <main>
             <HeroSection />
-<<<<<<< Updated upstream
-            <IntelligenceSection />
-            <HowItWorksSection />
-=======
             <HowItWorksSection />
             <IntelligenceSection />
->>>>>>> Stashed changes
         </main>
     )
 }
