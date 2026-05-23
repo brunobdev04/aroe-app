@@ -76,7 +76,8 @@ export default function HowItWorksSection() {
                         </Button>
 
                         <Button variant='outlineDark'>
-                            <Play size={14} className="fill-primary" />
+                            <Play size={14} style={{ fill: '#2A1F5E' }} />
+                            {/* <Play size={14} className="fill-primary" /> */}
                             Ver como funciona
                         </Button>
                     </div>
