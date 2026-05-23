@@ -75,7 +75,7 @@ export default function HowItWorksSection() {
                             Enviar receita
                         </Button>
 
-                        <Button variant='outline'>
+                        <Button variant='outlineDark'>
                             <Play size={14} className="fill-primary" />
                             Ver como funciona
                         </Button>
