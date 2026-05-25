@@ -29,87 +29,92 @@ export default function Navbar() {
     }, [menuOpen])
 
     return (
-        <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                scrolled
-                    ? "bg-primary/95 backdrop-blur-md shadow-lg shadow-black/20"
-                    : "bg-transparent"
-            }`}
-        >
+        <header className="fixed top-0 left-0 right-0 z-50">
 
-            <nav className="max-w-6xl mx-auto px-6 md:px-8 py-3 flex items-center justify-between">
+            <div
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                    scrolled || menuOpen
+                        ? "bg-primary/95 backdrop-blur-md shadow-lg shadow-black/20"
+                        : "bg-transparent"
+                }`}
+            >
 
-                <Link to="/" className="flex items-center flex-shrink-0">
-                    <img src="/logo.png" alt="Logo da Aroê" className="h-9 w-auto"/>
-                </Link>
+                <nav className="max-w-6xl mx-auto px-6 md:px-8 py-3 flex items-center justify-between">
 
-                <ul className="hidden md:flex items-center gap-8 lg:gap-10">
-                    {NAV_LINKS.map((link) => (
-                        <li key={link.to}>
-                            <Link
-                                to={link.to}
-                                className="text-white/90 text-sm font-medium hover:text-white transition-colors duration-200"
-                            >
-                                {link.label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                    <Link to="/" className="flex items-center flex-shrink-0">
+                        <img src="/logo.png" alt="Logo da Aroê" className="h-9 w-auto"/>
+                    </Link>
 
-                {/* cta desktop */}
-                <div className="hidden md:flex items-center gap-3">
-                    <Button variant="navOutline" to="/cadastro">
-                        Cadastrar
-                    </Button>
-
-                    <Button variant="navPrimary" to="/entrar">
-                        Entrar
-                    </Button>
-                </div>
-
-                {/* menu hamburguer */}
-                <button
-                    className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors duration-200"
-                    onClick={() => setMenuOpen((prev) => !prev)}
-                    aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-                    aria-expanded={menuOpen}
-                >
-                    {menuOpen ? <X size={22}/> : <Menu size={22} />}
-                </button>
-
-                <div
-                    className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-primary/98 backdrop-blur-md border-t border-white/10
-                    ${menuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'}`}
-                >
-                    <div className="px-6 py-6 flex flex-col gap-1">
-
-                        {/* link */}
+                    <ul className="hidden md:flex items-center gap-8 lg:gap-10">
                         {NAV_LINKS.map((link) => (
-                            <Link
-                                key={link.to}
-                                to={link.to}
-                                onClick={() => setMenuOpen(false)}
-                                className="text-white/85 text-base font-medium py-3 border-b border-white/8 hover:text-white hover:pl-1 transition-all duration-200"
-                            >
-                                {link.label}
-                            </Link>
+                            <li key={link.to}>
+                                <Link
+                                    to={link.to}
+                                    className="text-white/90 text-sm font-medium hover:text-white transition-colors duration-200"
+                                >
+                                    {link.label}
+                                </Link>
+                            </li>
                         ))}
+                    </ul>
 
-                        {/* ctas */}
-                        <div className="flex flex-col gap-3 pt-5">
-                            <Button variant="navOutline" to="/cadastro" className="w-full justify-center">
-                                Cadastrar
-                            </Button>
+                    {/* cta desktop */}
+                    <div className="hidden md:flex items-center gap-3">
+                        <Button variant="navOutline" to="/cadastro">
+                            Cadastrar
+                        </Button>
 
-                            <Button variant="navPrimary" to="/entrar" className="w-full justify-center">
-                                Entrar
-                            </Button>
-                        </div>
-
+                        <Button variant="navPrimary" to="/entrar">
+                            Entrar
+                        </Button>
                     </div>
-                </div>
 
-            </nav>
+                    {/* menu hamburguer */}
+                    <button
+                        className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors duration-500"
+                        onClick={() => setMenuOpen((prev) => !prev)}
+                        aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+                        aria-expanded={menuOpen}
+                    >
+                        {menuOpen ? <X size={22}/> : <Menu size={22} />}
+                    </button>
+
+                </nav>
+            </div>
+            
+            <div
+                className={`md:hidden fixed left-0 right-0 top-[25px] z-40 overflow-hidden transition-all duration-300 ease-in-out bg-primary/98 backdrop-blur-md border-t  border-white/10
+                    ${menuOpen
+                        ? 'max-h-[400px] opacity-100 pointer-events-auto'
+                        : 'max-h-0 opacity-0 pointer-events-none'
+                    }`}
+            >
+
+                
+                <div className="px-6 py-6 flex flex-col gap-1 mt-6">
+ 
+                    {NAV_LINKS.map((link) => (
+                        <Link
+                            key={link.to}
+                            to={link.to}
+                            onClick={() => setMenuOpen(false)}
+                            className="text-white/85 text-base font-medium py-3 border-b border-white/10 hover:text-white hover:pl-1 transition-all duration-200"
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+ 
+                    <div className="flex flex-col gap-3 pt-5">
+                        <Button variant="navOutline" to="/cadastro" className="w-full justify-center">
+                            Cadastrar
+                        </Button>
+                        <Button variant="navPrimary" to="/entrar" className="w-full justify-center">
+                            Entrar
+                        </Button>
+                    </div>
+ 
+                </div>
+            </div>
         </header>
     )
 }
