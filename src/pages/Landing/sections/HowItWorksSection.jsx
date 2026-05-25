@@ -3,16 +3,19 @@ import Button from '../../../components/ui/Button'
 
 const steps = [
     {
+        number: '01',
         icon: <FileText size={20} />,
         title: "Envie sua receita em segundos",
         desc: "Foto ou PDF de forma rápida e segura.",
     },
     {
+        number: '02',
         icon: <CircleDollarSign size={20} />,
         title: "Compare orçamentos facilmente",
         desc: "Veja preços e condições das melhores farmácias.",
     },
     {
+        number: '03',
         icon: <Truck size={20} />,
         title: "Receba em casa com segurança",
         desc: "Entrega rápida e acompanhamento do pedido.",
@@ -21,7 +24,7 @@ const steps = [
 
 export default function HowItWorksSection() {
     return (
-        <section className="relative flex overflow-hidden min-h-screen">
+        <section className="relative flex flex-col lg:flex-row overflow-hidden min-h-screen">
 
             {/* bg */}
             <div
@@ -29,41 +32,46 @@ export default function HowItWorksSection() {
                 style={{ backgroundImage: `url('/bg-howItWorks.png')` }}
             />
 
-            {/* textos*/}
-            <div className="relative z-20 w-1/2 flex items-center px-16 min-h-screen">
-                <div className="flex flex-col gap-6 max-w-xl">
+            {/* text */}
+            <div className="relative z-20 w-full lg:w-1/2 flex items-center px-6 sm:px-10 lg:px-16 py-24 lg:min-h-screen">
+                <div className="flex flex-col gap-4 max-w-xl w-full">
 
-                    {/* acho q vou mudar isso */}
                     <div className="inline-flex items-center gap-2 self-start text-xs font-semibold tracking-widest px-4 py-1.5 rounded-full border border-secondary/40 bg-secondary/10 text-secondary">
                         <span>🌿</span>
                         PRÁTICO E COMPLETO
                     </div>
 
-                    {/* head e subtitle */}
                     <div>
-                        <h2 className="font-serif text-5xl font-bold text-primary leading-snug">
+                        <h2 className="font-serif text-4xl lg:text-5xl font-bold text-primary leading-snug">
                             Controle seu tratamento
                             do{" "}
                             <span className="text-secondary">início ao fim.</span>
                         </h2>
-                        <p className="mt-4 text-lg text-primary/70 leading-relaxed">
+                        <p className="mt-4 text-base lg:text-lg text-primary/70 leading-relaxed">
                             Envie sua receita, compare preços e finalize com a melhor
                             opção — tudo pelo celular.
                         </p>
                     </div>
 
                     {/* steps */}
-                    <div className="flex flex-col gap-4">
-                        {steps.map((step) => (
+                    <div className="flex flex-col gap-0">
+                        {steps.map((step, index) => (
                             <div key={step.title} className="flex items-start gap-4">
-                                {/* icon */}
-                                <div className="flex-shrink-0 w-11 h-11 rounded-xl border-2 border-secondary/40 bg-secondary/10 text-secondary flex items-center justify-center">
-                                    {step.icon}
+
+                                <div className="flex flex-col items-center flex-shrink-0">
+                                    <div className="w-11 h-11 mt-2 rounded-xl border-2 border-secondary/40 bg-secondary/10 text-secondary flex items-center justify-center font-bold text-xs">
+                                        {step.number}
+                                    </div>
+                                    {index < steps.length - 1 && (
+                                        <div className="w-px h-8 bg-secondary/20 my-1" />
+                                    )}
                                 </div>
-                                <div>
+
+                                <div className="pt-2.5 pb-6">
                                     <p className="font-semibold text-primary text-base">{step.title}</p>
                                     <p className="text-sm text-primary/60 mt-0.5">{step.desc}</p>
                                 </div>
+
                             </div>
                         ))}
                     </div>
@@ -76,8 +84,7 @@ export default function HowItWorksSection() {
                         </Button>
 
                         <Button variant='outlineDark'>
-                            <Play size={14} style={{ fill: '#2A1F5E' }} />
-                            {/* <Play size={14} className="fill-primary" /> */}
+                            <Play size={14} className="fill-current" />
                             Ver como funciona
                         </Button>
                     </div>
@@ -86,13 +93,15 @@ export default function HowItWorksSection() {
             </div>
 
             {/* mockups */}
-            <div className="relative z-20 w-1/2 flex justify-center items-center overflow-hidden">
+            <div className="relative z-20 w-full lg:w-1/2 flex justify-center items-center min-h-64 lg:min-h-screen overflow-hidden px-6 pb-16 lg:pb-0">
                 <img
                     src="/mockups.png"
-                    alt="App Aroê"
-                    className="w-full max-w-lg drop-shadow-2xl"
+                    alt="Mockup do aplicativo Aroê mostrando a tela de cotação"
+                    loading="lazy"
+                    className="w-full max-w-sm lg:max-w-2xl drop-shadow-2xl"
                 />
             </div>
+
         </section>
     )
 }
