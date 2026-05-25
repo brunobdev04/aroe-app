@@ -23,7 +23,7 @@ const links = {
 
 export default function Footer() {
     return (
-        <footer className="bg-[#12113a] text-white">
+        <footer className="bg-primary text-white">
 
             <div className="max-w-6xl mx-auto px-8 py-14">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -37,7 +37,7 @@ export default function Footer() {
 
                     {Object.entries(links).map(([title, items]) => (
                         <div key={title} className="flex flex-col gap-4">
-                            <span className="text-sm font-semibold text-violet-400">
+                            <span className="text-sm font-semibold text-primary-light">
                                 {title}
                             </span>
 

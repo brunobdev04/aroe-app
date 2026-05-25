@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #2A1F5E;
+  --color-primary-light: #C3ACF1;
+  --color-secondary: #4DAA5C;
+  --color-secondary-light: #D6E9D8;
+
+  --font-serif: "DM Serif Text", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
