@@ -2,8 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Landing from './pages/Landing/Landing'
-import Login from './pages/login/Login'
-import Register from './pages/login/Register'
+import Login from './pages/Login/Login'
+import Register from './pages/Login/Register'
 
 function App() {
   const location = useLocation()
