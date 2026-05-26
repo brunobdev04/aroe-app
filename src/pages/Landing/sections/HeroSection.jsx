@@ -26,7 +26,7 @@ export default function HeroSection() {
                 <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight text-white mb-4">
                     Seus medicamentos<br />
                     manipulados,
-                    <span className="text-secondary">sem complicação.</span>
+                    <span className="text-secondary"> sem complicação.</span>
                 </h1>
 
                 <p className="text-sm text-white/90 leading-relaxed mb-8 max-w-sm">
