@@ -60,11 +60,11 @@ export default function Navbar() {
 
                     {/* cta desktop */}
                     <div className="hidden md:flex items-center gap-3">
-                        <Button variant="navOutline" to="/cadastro">
+                        <Button variant="navOutline" to="/register">
                             Cadastrar
                         </Button>
 
-                        <Button variant="navPrimary" to="/entrar">
+                        <Button variant="navPrimary" to="/login">
                             Entrar
                         </Button>
                     </div>
@@ -105,10 +105,10 @@ export default function Navbar() {
                     ))}
  
                     <div className="flex flex-col gap-3 pt-5">
-                        <Button variant="navOutline" to="/cadastro" className="w-full justify-center">
+                        <Button variant="navOutline" to="/register" className="w-full justify-center">
                             Cadastrar
                         </Button>
-                        <Button variant="navPrimary" to="/entrar" className="w-full justify-center">
+                        <Button variant="navPrimary" to="/login" className="w-full justify-center">
                             Entrar
                         </Button>
                     </div>
