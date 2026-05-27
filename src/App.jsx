@@ -8,17 +8,18 @@ import Register from './pages/Login/Register'
 function App() {
   const location = useLocation()
 
-  const hideNavbarOn = ['/login', '/register']
+  const hideDefaultLayoutOn = ['/login', '/register']
+  const hideDefaultLayout = hideDefaultLayoutOn.includes(location.pathname)
 
   return (
     <>
-      {!hideNavbarOn.includes(location.pathname) && <Navbar />}
+      {!hideDefaultLayout && <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
-      <Footer />
+      {!hideDefaultLayout && <Footer />}
     </>
   )
 }
