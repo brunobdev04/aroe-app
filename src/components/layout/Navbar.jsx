@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react'
 import Button from "../ui/Button"
 
 const NAV_LINKS = [
-    { label: 'Medicamentos', to: '/medicamentos'},
+    { label: 'Início', to: '/'},
     { label: 'Como funciona', to: '/como-funciona'},
     { label: 'Sobre', to: '/sobre'},
 ]
