@@ -43,6 +43,15 @@ export function ThemeProvider({ children }) {
   const toggleHighContrast = () => setHighContrast((prev) => !prev);
   const increaseFontSize = () => setFontSize((prev) => Math.min(prev + 2, 28));
   const decreaseFontSize = () => setFontSize((prev) => Math.max(prev - 2, 12));
+  const resetAccessibility = () => {
+    setHighContrast(false);
+    setFontSize(16);
+
+    document.documentElement.classList.remove("high-contrast");
+    document.documentElement.style.fontSize = "16px";
+    localStorage.removeItem("highContrast");
+    localStorage.removeItem("fontSize");
+  };
 
   const value = {
     darkMode,
@@ -55,6 +64,7 @@ export function ThemeProvider({ children }) {
     setFontSize,
     increaseFontSize,
     decreaseFontSize,
+    resetAccessibility,
   };
 
   return (

@@ -19,6 +19,7 @@ export default function AccessibilityToolbar() {
     fontSize,
     increaseFontSize,
     decreaseFontSize,
+    resetAccessibility,
   } = useThemeContext();
 
   const [voiceEnabled, setVoiceEnabled] = useState(false);
@@ -280,8 +281,10 @@ export default function AccessibilityToolbar() {
             <button
               onClick={() => {
                 resetAccessibility();
+                stopSpeech();
+                setVoiceEnabled(false);
                 setIsOpen(false);
-              }}toggleHighContrast
+              }}
               className="
                 w-full
                 mt-4

@@ -31,6 +31,15 @@ export function useAccessibility() {
     setHighContrast(false);
     setFontSize(16);
     setVoiceEnabled(false);
+
+    document.documentElement.classList.remove("high-contrast");
+    document.documentElement.style.fontSize = "16px";
+    localStorage.removeItem("highContrast");
+    localStorage.removeItem("fontSize");
+
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
   };
 
   // Aumentar fonte
