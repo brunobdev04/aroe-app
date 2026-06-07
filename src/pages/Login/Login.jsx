@@ -24,11 +24,27 @@ export default function Login() {
     const navigate = useNavigate()
     const { darkMode, toggleDarkMode } = useThemeContext()
 
-    function handleSubmit(e) {
+
+
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('login', { email, password })
-        alert('Login realizado com sucesso')
-        navigate('/dashboard')
+        try {
+            const usuarioLogado = await loginUsuario(email, password)
+            
+            localStorage.setItem("aroe_usuario_id", usuarioLogado.id)
+            localStorage.setItem("aroe_usuario_nome", usuarioLogado.nome)
+
+            alert('Bem-vindo, ' + usuarioLogado.nome + '!')
+            navigate('/dashboard')
+        } catch (error) {
+            alert('Erro ao fazer login: ' + error.message)
+
+
+
+            
+        }
     }
 
     return (

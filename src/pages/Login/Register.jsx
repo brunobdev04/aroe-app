@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthLayout from './AuthLayout'
 import Button from '../../components/ui/Button'
+import { cadastrarUsuario } from '../../services/auth'
 
 function GoogleIcon() {
   return (
@@ -17,15 +18,25 @@ function GoogleIcon() {
 export default function Register() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+
+ // const [phone, setPhone] = useState('') 
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     
-    console.log('register', { name, email, password })
-    alert('Cadastro enviado (ver console). Redirecionando para login...')
-    navigate('/login')
+    try {
+      // Chama o nosso adaptador passando os 4 campos (adicionar telefone depois)
+      await cadastrarUsuario(name, email, password)
+      
+      alert('Cadastro realizado com sucesso! Redirecionando para login...')
+      navigate('/login')
+      
+    } catch (erro) {
+      // Se o email já existir, mostra o erro que definimos no auth.js
+      alert(erro.message)
+    }
   }
 
   return (
