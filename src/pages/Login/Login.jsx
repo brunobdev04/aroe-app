@@ -5,6 +5,7 @@ import AuthLayout from './AuthLayout'
 import Button from '../../components/ui/Button'
 import { useThemeContext } from '../../contexts/ThemeContext'
 import AccessibilityToolbar from '../../components/layout/AccessibilityToolbar'
+import { loginUsuario } from '../../services/auth'
 
 function GoogleIcon() {
     return (
